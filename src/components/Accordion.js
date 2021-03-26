@@ -9,13 +9,15 @@ const Accordion = ({ items }) => {
   };
 
   const renderedItems = items.map((item, index) => {
+    const active = index === activeIndex ? 'active' : null;
+
     return (
       <React.Fragment key={item.title}>
-        <div className='title active' onClick={handleTitleClick.bind(this, index)}>
+        <div className={`title ${active}`} onClick={handleTitleClick.bind(this, index)}>
           <i className='dropdown icon'></i>
           {item.title}
         </div>
-        <div className='content active'>
+        <div className={`content ${active}`}>
           <p>{item.content}</p>
         </div>
       </React.Fragment>
